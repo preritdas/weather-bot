@@ -92,3 +92,14 @@ def weather_expectation(tomorrow: bool = False, response: dict = None) -> str:
     today: dict = response['daily'][1 if tomorrow else 0]
     raw_phrase: str = today['weather'][0]['description']
     return "Expect " + raw_phrase + "."
+
+
+class Weather:
+    def __init__(self):
+        _response = _request()
+        self._response = _response
+
+        self.min_max: tuple[float, float] = day_min_max(response=_response)
+        self.rain_probability: str = day_rain_probability(response=_response)
+        self.sunset_time: str = sunset(response=_response)
+        self.weather_expectation: str = weather_expectation(response=_response)
