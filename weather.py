@@ -95,6 +95,10 @@ def weather_expectation(tomorrow: bool = False, response: dict = None) -> str:
 
 
 class Weather:
+    """
+    Data style class wrapper around individual data gathering functions
+    to allow for easy readability in the `main.py` execution.
+    """
     def __init__(self):
         _response = _request()
         self._response = _response
