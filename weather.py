@@ -67,7 +67,7 @@ def day_rain_probability(tomorrow: bool = False, response: dict = None) -> str:
         response = _request()
 
     today: dict = response['daily'][1 if tomorrow else 0]
-    return str(int(float(today['pop']) * 100)) + '%'
+    return str(round(float(today['pop']) * 100)) + '%'
 
 
 def sunset(response: dict = None) -> str:
